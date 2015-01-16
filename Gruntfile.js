@@ -181,22 +181,16 @@ module.exports = function(grunt) {
     grunt.registerTask('release', ['concurrent:first']);
     grunt.registerTask('default', ['concurrent:first']);
 
-    grunt.registerTask('build', 'Build project', function () {
-        grunt.shipit.local('grunt:release', this.async());
-    });
 
     grunt.registerTask('remote:install', function () {
         var releasePath = path.join(grunt.shipit.releasesPath, grunt.shipit.releaseDirname);
-        grunt.shipit.remote('cd ' + releasePath + ' && npm install');
+        grunt.shipit.remote('cd ' + releasePath + ' && npm install && grunt release');
     });
 
       /**
        * Initialize hooks.
        */
 
-    grunt.shipit.on('fetched', function () {
-        grunt.task.run(['build']);
-    });
 
     grunt.shipit.on('updated', function () {
         grunt.task.run(['remote:install']);
