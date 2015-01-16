@@ -130,7 +130,8 @@ module.exports = function(grunt) {
     };
 
     /************************** NO NEED TO EDIT BELOW THIS LINE **************************/
-        
+    
+
     require('jit-grunt')(grunt, {
         'cssmetrics': 'grunt-css-metrics',
         'sass': 'grunt-sass'
@@ -157,12 +158,48 @@ module.exports = function(grunt) {
         tasks: config,
         concurrent: {
             first: ['css', 'scripts', 'images']
+        },
+        shipit: {
+            options: {
+                workspace: '/tmp/sarahperkins.eu',
+                deployTo: '/var/www/sarahperkins.eu',
+                repositoryUrl: 'git@github.com:allmarkedup/sarahperkins.eu.git',
+                ignores: ['.git', 'node_modules'],
+                keepReleases: 3
+            },
+            live: {
+                servers: 'root@178.62.84.78'
+            }
         }
     });
 
     grunt.loadTasks('tasks');
 
+    var path = require('path');
+    grunt.loadNpmTasks('grunt-shipit');
+
     grunt.registerTask('release', ['concurrent:first']);
     grunt.registerTask('default', ['concurrent:first']);
+
+    grunt.registerTask('build', 'Build project', function () {
+        grunt.shipit.local('grunt:release', this.async());
+    });
+
+    grunt.registerTask('remote:install', function () {
+        var releasePath = path.join(grunt.shipit.releasesPath, grunt.shipit.releaseDirname);
+        grunt.shipit.remote('cd ' + releasePath + ' && npm install');
+    });
+
+      /**
+       * Initialize hooks.
+       */
+
+    grunt.shipit.on('fetched', function () {
+        grunt.task.run(['build']);
+    });
+
+    grunt.shipit.on('updated', function () {
+        grunt.task.run(['remote:install']);
+    });
 
 };
