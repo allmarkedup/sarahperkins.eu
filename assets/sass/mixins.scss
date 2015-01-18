@@ -1,0 +1,27 @@
+@mixin font-serif() {
+    font-family: "Adelle Light", Georgia, serif;
+    font-size-adjust: 0.516;
+    font-weight: 200;
+    font-style: normal;
+}
+
+@mixin font-serif-bold() {
+    font-family: "Adelle SemiBold", Georgia, serif;
+    font-size-adjust: 0.52;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@mixin font-sans() {
+    font-family: "Din Display Pro Medium", Verdana, sans-serif;
+    font-size-adjust: 0.5;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin font-sans-bold() {
+    font-family: "Din Display Pro Black", Verdana, sans-serif;
+    font-size-adjust: 0.5;
+    font-weight: 800;
+    font-style: normal;
+}

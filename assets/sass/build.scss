@@ -1,9 +1,8 @@
-// -----------------------------------------------------------------------------
-// This file is where you should import all your project files
-// -----------------------------------------------------------------------------
+@import 'vendor/normalize.scss';
 
-// @import 'example.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'foundation.scss';
 
-* {
-    color: red;
-}
+@import 'components/branding.scss';
+@import 'components/section.scss';

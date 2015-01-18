@@ -65,12 +65,12 @@ module.exports = function(grunt) {
              * Image files optimise and output into 'dest'.
              * Default matches any files with png/jpg/gif extensions in the source dir.
              */
-            optimise: ['**/*.{png,jpg,jpeg,gif}'],
+            optimise: [],
             /*
              * Image files to copy to 'dest' without optimisation.
              * Default matches any files with png/jpg/gif extensions in the source dir.
              */
-            copy: [],
+            copy: ['**/*.{png,jpg,jpeg,gif}'],
             /*
              * Which files to watch for changes.
              * Changes to any files specified here will result in the css task being 
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         clean: {},
         watch: {
             options: {
-                livereload: true
+                livereload: 3006
             }
         },
         tasks: config,

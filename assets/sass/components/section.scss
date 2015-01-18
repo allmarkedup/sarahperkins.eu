@@ -1,0 +1,74 @@
+.Section {
+    padding: 40px 5% 80px 5%;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.Section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ddd;
+    color: rgba(255,255,255,0.7);
+}
+ .Section-title {
+    color: #fff;
+    margin-bottom: 15px;
+ }
+
+.Section--header {
+    padding-top: 0;
+    padding-bottom: 30px;
+    background-color: $color-block-brown;
+    background-image: url('/assets/img/sarah-running-header.jpg');
+    background-size: cover;
+    .Section-container {
+        padding-top: 300px;
+    }
+}
+.Section--intro {
+    background-color: $color-block-purple;
+    .Section-text {
+        width: 70%; 
+    }
+}
+
+.Section--trainingplans {
+    background-color: $color-block-green;
+    margin-top: -40px;
+    transform: rotate(1.5deg);
+    .Section-container {
+        transform: rotate(-1.5deg);
+    }
+    .Figure {
+        max-height: 400px;
+        overflow: hidden;
+    }
+    .Figure-image {
+        width: 100%;
+    }
+}
+
+.Section--groups {
+    background-color: $color-block-indigo;
+    margin-top: -110px;
+    transform: rotate(-1.5deg);
+    .Section-container {
+        transform: rotate(1.5deg);
+    }
+}
+
+.Section--about {
+    background-color: $color-block-blue;
+    margin-top: -40px;
+    transform: rotate(1.5deg);
+    .Section-container {
+        transform: rotate(-1.5deg);
+    }
+}
+
+.Section--footer {
+    background-color: $color-block-brown;
+    padding-bottom: 50px;
+    margin-top: -40px;
+    z-index: 2;
+}
