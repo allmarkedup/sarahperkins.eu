@@ -1,2 +1,2 @@
-# sarahperkins.eu site build
+# sarahperkins.eu
 
